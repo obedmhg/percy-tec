@@ -1,0 +1,30 @@
+version: 2
+snapshot:
+  widths: [375, 1280]
+  min-height: 1024 # px
+  percy-css: |
+    iframe {
+      display: none;
+    }
+static:
+  base-url: /blog/
+  files: '**/*.html'
+  ignore: '**/*.htm'
+discovery:
+  allowed-hostnames:
+    - myhost
+  authorization:
+    username: "admin"
+    password: "admin"
+  request-headers:
+    Authorization: 'Basic YWRtaW46YWRtaW4='
+  network-idle-timeout: 1500 # ms
+  disable-cache: false  # default
+  concurrency: 15
+  launch-options:
+    headless: true # default
+    args: [] # browser arguments/flags
+    timeout: 30000 # default
+upload:
+  files: "**/*.{png,jpg,jpeg}"
+  ignore: ""
